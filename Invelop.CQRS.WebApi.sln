@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30002.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Invelop.CQRS.WebApi", "Invelop.CQRS.WebApi\Invelop.CQRS.WebApi.csproj", "{74C99DA2-EC19-4F67-BA1D-B4A00BBDF1CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74C99DA2-EC19-4F67-BA1D-B4A00BBDF1CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74C99DA2-EC19-4F67-BA1D-B4A00BBDF1CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74C99DA2-EC19-4F67-BA1D-B4A00BBDF1CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74C99DA2-EC19-4F67-BA1D-B4A00BBDF1CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F7EAE57-0B73-42AF-AFA5-93DD7EA85AD8}
+	EndGlobalSection
+EndGlobal
