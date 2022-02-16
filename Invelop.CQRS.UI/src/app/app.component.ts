@@ -29,7 +29,7 @@ export class AppComponent {
         private confirmationService: ConfirmationService) { }
 
     ngOnInit() {                
-        this.contactService.get().subscribe(contacts => { this.contacts = contacts; console.log(contacts); });
+        this.contactService.get().subscribe(contacts => this.contacts = contacts );
     }
 
     openNew() {        
@@ -86,31 +86,11 @@ export class AppComponent {
     saveContact() {        
         this.submitted = true;
 
-        // this.workoutService.update(jogging).subscribe(
-        //     joggingRecord =>  this.joggingData.splice(updateIndex, 1, jogging)
-        //   );
-
         this.contact.id ? this.updateContact() : this.addContact();
-        
-        
-        // if (this.contact.firstname.trim()) {
-        //     if (this.contact.id) {
-        //         this.contacts[this.findIndexById(this.contact.id)] = this.contact;                
-        //         this.messageService.add({severity:'success', summary: 'Successful', detail: 'Contact Updated', life: 3000});
-        //     }
-        //     else {
-        //         this.contact.id = this.createId();                
-        //         this.contacts.push(this.contact);
-        //         this.messageService.add({severity:'success', summary: 'Successful', detail: 'Contact Created', life: 3000});
-        //     }
-            
-        //     this.contacts = [...this.contacts];            
-        //     this.contactDialog = false;
-        //     this.contact = {};
-        // }
     }
 
     private updateContact() {
+        console.log(this.contact);
         this.contactService.update(this.contact).subscribe(
             data  => {
                 this.messageService.add({severity:'success', summary: 'Successful', detail: 'Contact Updated', life: 3000});
@@ -124,12 +104,14 @@ export class AppComponent {
     }
 
     private addContact() {
+        
         this.contactService.add(this.contact).subscribe(
             data  => {
-                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Contact Added', life: 3000});
-                console.log(data);
-                this.contact.id = this.createId();                
+                this.messageService.add({severity:'success', summary: 'Successful', detail: 'Contact Added', life: 3000});                
+                console.log(data.toString());             
+                this.contact.id = data.toString();              
                 this.contacts.push(this.contact);
+                this.contactService.get().subscribe(contacts => this.contacts = contacts );
             },
             errorResponse => { 
                 this.messageService.add({severity:'error', summary: 'Error', detail: errorResponse.error, life: 3000});                
@@ -147,14 +129,5 @@ export class AppComponent {
         }
 
         return index;
-    }
-
-    createId(): string {
-        let id = '';
-        var chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-        for ( var i = 0; i < 5; i++ ) {
-            id += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return id;
     }
 }
