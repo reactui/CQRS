@@ -2,7 +2,6 @@ using FluentValidation;
 using Invelop.CQRS.WebApi.Infrastructure.Context;
 using Invelop.CQRS.WebApi.PipelineBehaviours;
 using MediatR;
-using Microsoft.AspNetCore.Authentication.Certificate;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -29,10 +28,6 @@ namespace Invelop.CQRS.WebApi
             services.AddDbContext<DataContext>(options =>
                 options.UseSqlite("Filename=./DataBase/Contacts.sqlite"));
 
-            //services.AddAuthentication(
-            //    CertificateAuthenticationDefaults.AuthenticationScheme)
-            //    .AddCertificate();
-
             services.AddSwaggerGen(c =>
             {
                 c.IncludeXmlComments(string.Format(@"{0}\CQRS.WebApi.xml", System.AppDomain.CurrentDomain.BaseDirectory));
@@ -52,8 +47,7 @@ namespace Invelop.CQRS.WebApi
             {
                 builder
                     .WithOrigins("http://localhost:4200")
-                    .WithOrigins("https://localhost:4200")
-                    //.AllowAnyOrigin()
+                    .WithOrigins("https://localhost:4200")                    
                     .AllowAnyMethod()
                     .AllowAnyHeader();
                 
@@ -78,24 +72,12 @@ namespace Invelop.CQRS.WebApi
                 app.UseDeveloperExceptionPage();
             }
 
-            dataContext.Database.EnsureCreated();
+            dataContext.Database.EnsureCreated();            
 
-
-            
-
-            app.UseCors("ApiCorsPolicy");
-
-            //app.UseHttpsRedirection();
-
-
+            app.UseCors("ApiCorsPolicy");           
             app.UseRouting();           
 
-            //app.UseAuthorization();
-
-            
-            
-            
-            // Enable middleware to serve generated Swagger as a JSON endpoint.
+        
             app.UseSwagger();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
