@@ -1,8 +1,8 @@
-Invelop.CQRS.UI  (the Angular app)
-Invelop.CQRS.WebApi (the WebApi C# app)
+CQRS.UI  (the Angular app)
+CQRS.WebApi (the WebApi C# app)
 
-Enter the Invelop.CQRS.WebApi  folder and type from command prompt "dotnet run", this will start the Kestrel web-server on http://localhost:5000
-Enter the Invelop.CQRS.UI folder and type "npm install" to install the needed modules, then "npm start". This will start the angular application on http://localhost:4200/
+Enter the CQRS.WebApi  folder and type from command prompt "dotnet run", this will start the Kestrel web-server on http://localhost:5000
+Enter the CQRS.UI folder and type "npm install" to install the needed modules, then "npm start". This will start the angular application on http://localhost:4200/
 
 Open a browser and  type http://localhost:4200/, if everything is correct you should be able to a grid with data
 
