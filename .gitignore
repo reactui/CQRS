@@ -339,3 +339,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+/CQRS.UI/.angular/cache/13.2.3
+/CQRS.UI/e2e
+/CQRS.UI/cypress
+/CQRS.UI/.vscode
